@@ -1,4 +1,4 @@
-"""使用新增 Book 数据训练三类别桌面物体检测模型。"""
+"""训练三类别桌面物体检测模型。"""
 
 from pathlib import Path
 
@@ -31,7 +31,7 @@ def train() -> None:
         batch=4,
         device=0 if torch.cuda.is_available() else "cpu",
         project=str(PROJECT_PATH),
-        name="desktop_retrain_v1",
+        name="desktop_detection_training",
         exist_ok=False,
         workers=0,
     )

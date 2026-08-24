@@ -1,4 +1,4 @@
-"""使用独立测试集评估两个三类别模型。"""
+"""使用独立测试集评估最终三类别模型。"""
 
 from pathlib import Path
 
@@ -14,7 +14,7 @@ DATA_PATH = PROJECT_ROOT / "data_merged_v3" / "data.yaml"
 
 # 要评估的最终模型。
 MODELS = {
-    "desktop_merged_v1": PROJECT_ROOT / "models" / "final" / "desktop_merged_v1.pt",
+    "desktop_detection_v1": PROJECT_ROOT / "models" / "final" / "desktop_detection_v1.pt",
 }
 DEVICE = 0 if torch.cuda.is_available() else "cpu"
 

@@ -22,7 +22,7 @@ downloads/
 runs/
 outputs/
 
-# 只保留复制到 models/final/ 的最终模型
+# 只保留 models/ 中明确发布的模型
 *.pt
 !models/base/*.pt
 !models/final/*.pt

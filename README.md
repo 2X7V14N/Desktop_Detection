@@ -10,10 +10,10 @@
 
 ## 项目结果
 
-当前最终选择的模型是：
+仓库名称 `Desktop_Detection_V1` 表示这是项目的第一个正式发布版本。训练过程中曾使用过 `desktop_merged_v1`、`desktop_merged_v2`、`desktop_merged_v3` 等实验名称；最终选中的权重已经统一重命名为正式发布名称：
 
 ```text
-models/final/desktop_merged_v1.pt
+models/final/desktop_detection_v1.pt
 ```
 
 在扩展后的测试集 `data_merged_v3` 上评估结果如下：
@@ -34,13 +34,13 @@ mAP50:     0.7088
 mAP50-95:  0.5486
 ```
 
-`cup` 效果较好，`pen` 为中等水平，`book` 仍然是当前主要改进方向。项目最终选择 `desktop_merged_v1`，因为它比加入新 Book 数据后重新训练的 `desktop_merged_v3` 具有更高的总体 mAP 和更高的 book mAP50-95。
+`cup` 效果较好，`pen` 为中等水平，`book` 仍然是当前主要改进方向。最终发布模型来自历史实验 `desktop_merged_v1`；加入新 Book 数据后得到的 `desktop_merged_v3` 整体指标略低，因此没有作为正式模型发布。
 
 ## 目录结构
 
 ```text
 Desktop_Detection_V1/
-├── models/final/              最终模型权重
+├── models/final/              正式发布的模型权重
 ├── scripts/
 │   ├── son_to_yolo.py         LabelMe JSON 转 YOLO TXT
 │   ├── merge_datasets.py      合并多个 YOLO 数据集
@@ -130,7 +130,7 @@ uv run python scripts/train_yolo.py
 
 ## 测试集评估
 
-准备好测试集和两个模型后运行：
+准备好测试集后运行：
 
 ```powershell
 uv run python scripts/evaluate_test.py

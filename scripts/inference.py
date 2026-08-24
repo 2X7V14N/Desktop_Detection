@@ -8,7 +8,7 @@ from ultralytics import YOLO
 
 # 项目根目录是 scripts 文件夹的上一级目录。
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-MODEL_PATH = PROJECT_ROOT / "models" / "final" / "desktop_merged_v1.pt"
+MODEL_PATH = PROJECT_ROOT / "models" / "final" / "desktop_detection_v1.pt"
 IMAGE_PATH = PROJECT_ROOT / "data" / "images" / "img030.JPG"
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
 DEVICE = 0 if torch.cuda.is_available() else "cpu"
