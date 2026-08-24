@@ -1,0 +1,34 @@
+# Python 环境与缓存
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# PyCharm 和本地工具配置
+.idea/
+.vscode/
+
+# 本地数据、压缩包和 Ultralytics 缓存
+data/
+data_book_only/
+data_merged/
+data_merged_v3/
+public_datasets/
+downloads/
+*.cache
+
+# 训练输出和推理输出
+runs/
+outputs/
+
+# 只保留复制到 models/final/ 的最终模型
+*.pt
+!models/base/*.pt
+!models/final/*.pt
+
+# 本地日志和系统文件
+*.log
+*.tmp
+Thumbs.db
+desktop.ini
