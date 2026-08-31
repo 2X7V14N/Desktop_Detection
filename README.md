@@ -74,14 +74,13 @@ uv run python -c "import torch; print(torch.cuda.is_available()); print(torch.cu
 
 ## 数据集
 
-由于数据集体积较大，且部分数据来自第三方，仓库不上传原始图片和标签。请按照下面的目录准备本地数据：
+训练所需的合并数据集已经随仓库提供，图片通过 Git LFS 管理。克隆仓库后请确保已安装 Git LFS，并在项目目录执行 `git lfs pull`，即可取得图片文件。原始下载压缩包和重复的中间数据不会上传。
 
 ```text
-data/
-data_merged/
 data_merged_v3/
-public_datasets/
 ```
+
+其中 `data_merged_v3` 包含 2,655 张训练图片、517 张验证图片和 262 张测试图片，以及对应的 YOLO 标签。
 
 项目使用过的数据来源：
 
@@ -120,7 +119,7 @@ outputs/image_test/
 
 ## 训练模型
 
-准备好 `data_merged_v3/data.yaml` 后运行：
+取得数据集后运行：
 
 ```powershell
 uv run python scripts/train_yolo.py
@@ -130,7 +129,7 @@ uv run python scripts/train_yolo.py
 
 ## 测试集评估
 
-准备好测试集后运行：
+取得数据集后运行：
 
 ```powershell
 uv run python scripts/evaluate_test.py
