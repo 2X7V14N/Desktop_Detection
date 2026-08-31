@@ -74,7 +74,7 @@ uv run python -c "import torch; print(torch.cuda.is_available()); print(torch.cu
 
 ## 数据集
 
-训练所需的合并数据集已经随仓库提供，图片通过 Git LFS 管理。克隆仓库后请确保已安装 Git LFS，并在项目目录执行 `git lfs pull`，即可取得图片文件。原始下载压缩包和重复的中间数据不会上传。
+训练所需的合并数据集已经随仓库提供，图片和标签均已上传。克隆仓库即可取得数据文件；原始下载压缩包和重复的中间数据不会上传。
 
 ```text
 data_merged_v3/
