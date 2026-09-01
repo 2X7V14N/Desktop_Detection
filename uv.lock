@@ -343,7 +343,7 @@ wheels = [
 ]
 
 [[package]]
-name = "desktop-detection-v1"
+name = "desktop-detection-v2"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

@@ -10,7 +10,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 MODEL_PATH = PROJECT_ROOT / "models" / "base" / "yolov8n.pt"
 
-DATA_PATH = PROJECT_ROOT / "data_merged_v3" / "data.yaml"
+DATA_PATH = PROJECT_ROOT / "data_new" / "data.yaml"
 PROJECT_PATH = PROJECT_ROOT / "runs" / "train"
 
 
@@ -25,15 +25,16 @@ def train() -> None:
 
     model.train(
         data=str(DATA_PATH),
-        epochs=50,
-        patience=10,
+        epochs=100,
+        patience=20,
         imgsz=640,
         batch=4,
         device=0 if torch.cuda.is_available() else "cpu",
         project=str(PROJECT_PATH),
-        name="desktop_detection_training",
+        name="desktop_detection_v2",
         exist_ok=False,
         workers=0,
+        seed=42,
     )
 
 

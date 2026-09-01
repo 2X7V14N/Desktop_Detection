@@ -1,6 +1,6 @@
 [project]
-name = "desktop-detection-v1"
-version = "0.1.0"
+name = "desktop-detection-v2"
+version = "0.2.0"
 requires-python = ">=3.11"
 dependencies = [
     "torch",
