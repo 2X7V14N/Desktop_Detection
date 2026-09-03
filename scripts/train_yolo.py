@@ -31,7 +31,7 @@ def train() -> None:
         batch=4,
         device=0 if torch.cuda.is_available() else "cpu",
         project=str(PROJECT_PATH),
-        name="desktop_detection_v2",
+        name="desktop_detection_v3",
         exist_ok=False,
         workers=0,
         seed=42,

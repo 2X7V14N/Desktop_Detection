@@ -15,6 +15,7 @@ data_book_only/
 data_merged/
 public_datasets/
 downloads/
+*.zip
 *.cache
 
 # 训练输出和推理输出

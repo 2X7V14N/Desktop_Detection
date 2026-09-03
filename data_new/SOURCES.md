@@ -1,31 +1,34 @@
 # data_new 数据来源
 
-类别编号固定为：
+## 项目类别
 
 - `0`: cup
 - `1`: book
 - `2`: pen
 
-## 使用的数据
+## 数据来源
 
-- 原 cup 图片：从 `data_old` 中保留仅含 cup 标注的图片。
+- 原 cup 图片：从旧合并数据中保留的 cup 数据。
 - 新 book 数据：`book.v1i.yolov8.zip`，CC BY 4.0。
   https://universe.roboflow.com/santiago-garcia/book-urxgh/dataset/1
-- 新 pen 数据：`Pen-Tracking-Coursework.v5i.yolov8.zip`，CC BY 4.0。
-  https://universe.roboflow.com/coco-oshnc/pen-tracking-coursework/dataset/5
+- 新 pen 数据：`pen.v1-pen-version2.yolov8.zip`，CC BY 4.0。
+  https://universe.roboflow.com/yolov5-h3oo1/pen-zyj9j/dataset/1
 
 ## 合并规则
 
-- 旧数据中的 book 和 pen 图片没有加入。
-- 新数据的 `book` 源类别 `0` 映射为项目类别 `1`。
-- 新数据的 `Pen` 源类别 `0` 映射为项目类别 `2`。
-- 图片和标签按 SHA-256 去除完全重复的图片。
-- 新数据优先保留原有 train、valid、test 划分；如果压缩包没有 valid，则从 train 固定划出 20% 作为 val。
+- book 和 cup 数据保持原样，没有修改或重新划分。
+- 原 data_new 中的 pen 数据全部移除。
+- 新数据集的 `Pen` 源类别 `0` 映射为项目类别 `2`。
+- 新 pen 数据原本只有 `train` 和 `valid`，按固定 SHA-256 排序后重新划分为 train/val/test，比例约为 80%/10%/10%。
+- 所有图片都复制到统一的 `images/{train,val,test}` 目录，标签复制到对应的 `labels/{train,val,test}` 目录。
 
-## 加入数量
+## 数据数量
 
-| 来源 | train | val | test |
-|---|---:|---:|---:|
-| 原 cup | 186 | 13 | 7 |
-| 新 book | 765 | 191 | 106 |
-| 新 pen | 2163 | 167 | 118 |
+| 类别 | train | val | test | 总计 |
+|---|---:|---:|---:|---:|
+| cup | 186 | 13 | 7 | 206 |
+| book | 765 | 191 | 106 | 1062 |
+| 新 pen | 668 | 83 | 85 | 836 |
+| 合计图片 | 1619 | 287 | 198 | 2104 |
+
+新 pen 数据集的原始导出中包含 806 张 train 图片和 30 张 valid 图片，共 836 张；本项目将其统一整理为三部分，便于训练、验证和最终测试。
